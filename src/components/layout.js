@@ -5,10 +5,12 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React from "react"
+import React, { useContext } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { Helmet } from "react-helmet"
 
+import { ThemeContext } from "./theme"
 import Header from "./header"
 import "../styles/global"
 
@@ -22,9 +24,14 @@ const Layout = ({ children }) => {
       }
     }
   `)
-
+  const { theme } = useContext(ThemeContext)
   return (
     <>
+      <Helmet
+        htmlAttributes={{
+          class: theme,
+        }}
+      />
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
         style={{
