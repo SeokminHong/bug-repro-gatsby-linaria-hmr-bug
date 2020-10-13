@@ -2,8 +2,8 @@ import lightTheme from "./themes/light"
 import darkTheme from "./themes/dark"
 
 const colors = {
-  light: lightTheme,
-  dark: darkTheme,
+  light: { ...lightTheme, headerText: "red" },
+  dark: { ...darkTheme, headerText: "yellow" },
 }
 
 const theming = cb =>

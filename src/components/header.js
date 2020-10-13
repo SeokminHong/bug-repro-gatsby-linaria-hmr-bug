@@ -4,6 +4,8 @@ import React from "react"
 import { css } from "linaria"
 import { styled } from "linaria/react"
 
+import { theming } from "../styles/theme"
+
 const HeaderBorder = styled.header`
   background-color: rebeccapurple;
   margin-bottom: 1.45rem;
@@ -21,10 +23,10 @@ const Header = ({ siteTitle }) => (
       <h1 style={{ margin: 0 }}>
         <Link
           to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
+          className={css`
+            ${theming(c => ({ color: c.headerText }))}
+            text-decoration: none;
+          `}
         >
           {siteTitle}
         </Link>
